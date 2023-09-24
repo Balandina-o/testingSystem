@@ -6,11 +6,15 @@ class TestStore {
       id: 1,
       name: "Оргтехника",
       test_img: "https://diamondhand.ru/util/image/orgtehnika-big.png",
+      description:
+        "1sddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
     },
     {
       id: 2,
       name: "Автомобили",
       test_img: "https://inbusiness.kz/uploads/31/images/BcjmSeW9.jpg",
+      description:
+        "2dsdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
     },
   ];
   question = [
