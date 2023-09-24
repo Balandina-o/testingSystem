@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 
 class TestStore {
-  tests = [
+  testList = [
     {
       id: 1,
       name: "Оргтехника",
@@ -13,7 +13,7 @@ class TestStore {
       test_img: "https://inbusiness.kz/uploads/31/images/BcjmSeW9.jpg",
     },
   ];
-  questions = [
+  question = [
     {
       id: "1",
       test_id: 1,
@@ -95,40 +95,44 @@ class TestStore {
   }
 
   addTest(test) {
-    this.tests.push(test);
+    this.testList.push(test);
   }
 
   removeTest(test_id) {
-    this.tests = this.tests.filter((test) => test.id !== test_id);
+    this.testList = this.testList.filter((test) => test.id !== test_id);
   }
 
   addQuestion(question) {
-    this.tests.push(question); //почему в tests a не в questions??
+    this.testList.push(question); //почему в testList a не в questions??
   }
 
   removeQuestion(question_id) {
-    this.tests = this.tests.filter((question) => question.id !== question_id);
+    this.testList = this.testList.filter(
+      (question) => question.id !== question_id
+    );
   }
 
   addAnswer(question_id, answer) {
-    this.tests.map((questions) => {
-      if (question.id == question_id) {
+    this.testList.map((question) => {
+      if (question.id === question_id) {
         return question.answers.push(answer);
       }
 
-      return questions;
+      return question;
     });
   }
 
   removeAnswer(question_id, answer_id) {
-    this.tests.map((questions) => {
+    this.testList.map((question) => {
       //мар - для каждого элемента массива
-      if (question.id == question_id) {
+      if (question.id === question_id) {
         return (question.answers = question.answers.filter(
           (answer) => answer.id !== answer_id
         ));
       }
-      return questions;
+      return question;
     });
   }
 }
+
+export default TestStore;

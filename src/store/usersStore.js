@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 
-class UserStore {
+class UsersStore {
   _user = {};
   _loggedIn = false;
 
@@ -12,17 +12,18 @@ class UserStore {
     this._user = user;
   }
 
-  getUser(user) {
+  get user() {
     return this._user;
   }
 
   setLoggedIn(loggedIn) {
+    console.log(loggedIn);
     this._loggedIn = loggedIn;
   }
 
-  getLoggedIn(loggedIn) {
+  get loggedIn() {
     return this._loggedIn;
   }
 }
 
-export default new UserStore();
+export default UsersStore;

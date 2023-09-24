@@ -14,3 +14,4 @@ class ResultsStore {
     this.results = this.results.filter((result) => result.test_id !== test_id);
   }
 }
+export default ResultsStore;

@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../index";
 
 const TestListPage = () => {
-  return <div>MAIN</div>;
+  const { tests } = useContext(Context);
+  return (
+    <div>
+      {tests.testList.map((test) => (
+        <div key={test.id}>{test.name}</div>
+      ))}
+    </div>
+  );
 };
 
 export default TestListPage;

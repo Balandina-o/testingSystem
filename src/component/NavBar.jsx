@@ -1,12 +1,19 @@
-import React from "react";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Button, Navbar } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import classes from "./NavBar.module.css";
-const NavBar = () => {
+
+import { Context } from "../index";
+import { observer } from "mobx-react-lite";
+
+const NavBar = observer(() => {
+  const { users } = useContext(Context);
+  const navigate = useNavigate();
+
   return (
-    <Navbar bg="primary" data-bs-theme="dark">
+    <Navbar bg="dark" data-bs-theme="dark">
       <Navbar.Brand href="#home" className={classes.brand}>
-        Survey Super
+        Testing System
       </Navbar.Brand>
       <div className={classes.nav}>
         <div className={classes.links}>
@@ -14,18 +21,37 @@ const NavBar = () => {
             Главная
           </Link>
           <Link className={classes.link} to="/about">
-            О Проекте
+            О проекте
           </Link>
-          <Link className={classes.link} to="/profile">
-            Профиль
-          </Link>
+          {users.loggedIn && (
+            <Link className={classes.link} to="/profile">
+              Профиль
+            </Link>
+          )}
         </div>
-        <Button style={{ marginRight: "30px" }} variant="outline-success">
-          Авторизоваться
-        </Button>
+
+        {users.loggedIn ? (
+          <Button
+            style={{ marginRight: "30px" }}
+            variant="outline-light"
+            className="button"
+            onClick={() => users.setLoggedIn(false)}
+          >
+            Выйти
+          </Button>
+        ) : (
+          <Button
+            style={{ marginRight: "30px" }}
+            variant="outline-light"
+            className="button"
+            onClick={() => navigate("/auth")}
+          >
+            Авторизоваться
+          </Button>
+        )}
       </div>
     </Navbar>
   );
-};
+});
 
 export default NavBar;

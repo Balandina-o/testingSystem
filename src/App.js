@@ -1,26 +1,37 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NavBar from "./component/NavBar";
+
 import TestListPage from "./pages/TestListPage";
 import AuthPage from "./pages/AuthPage";
 import AboutPage from "./pages/AboutPage";
 import ProfilePage from "./pages/ProfilePage";
 import TestPage from "./pages/TestPage";
 import RegistrationPage from "./pages/RegistrationPage";
-// import NavBar from "./component/NavBar";
+import ResultPage from "./pages/ResultPage";
+
+import { Context } from "./index";
 
 function App() {
+  const { users } = useContext(Context);
+  //const loggedIn = true;
+
   return (
     <>
       <BrowserRouter>
-        {/* <NavBar /> */}
-
+        <NavBar />
         <Routes>
-          <Route path="/main" element={<TestListPage />} />
+          <Route path="/test" element={<TestListPage />} />
+          <Route path="/test/:id" element={<TestListPage />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/registration" element={<RegistrationPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/survey" element={<TestPage />} />
+          <Route path="/test" element={<TestPage />} />
+
+          {users.loggedIn && <Route path="/result" element={<ResultPage />} />}
+          {users.loggedIn && (
+            <Route path="/profile" element={<ProfilePage />} />
+          )}
           <Route path="*" element={<TestListPage />} />
         </Routes>
       </BrowserRouter>
