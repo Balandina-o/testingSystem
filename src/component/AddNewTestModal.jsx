@@ -12,7 +12,7 @@ const AddNewTestModal = ({ show, onClose }) => {
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title>Создание теста</Modal.Title>
+          <Modal.Title>Добавление нового теста</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>

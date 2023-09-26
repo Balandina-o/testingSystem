@@ -93,6 +93,31 @@ class TestStore {
         },
       ],
     },
+    {
+      id: "4",
+      test_id: 1,
+      question: "Лучший производитель наушников",
+      image:
+        "https://avatars.mds.yandex.net/get-mpic/3614670/img_id6299576373330854786.jpeg/orig",
+      answers: [
+        {
+          id: "1",
+          name: "Toshiba",
+        },
+        {
+          id: "2",
+          name: "Genius",
+        },
+        {
+          id: "3",
+          name: "Acer",
+        },
+        {
+          id: "4",
+          name: "Dell",
+        },
+      ],
+    },
   ];
   constructor() {
     makeAutoObservable(this);

@@ -21,8 +21,8 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/test" element={<TestListPage />} />
-          <Route path="/test/:id" element={<TestListPage />} />
+          <Route path="/tests" element={<TestListPage />} />
+          <Route path="/tests/:id" element={<TestPage />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/about" element={<AboutPage />} />
