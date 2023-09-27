@@ -7,7 +7,6 @@ const TestCard = ({ id, title, description, img, onDelete }) => {
   return (
     <Card style={{ width: "18rem" }} className="m-4 position-relative">
       <Card.Img className=" start-0 mt-5" variant="top" src={img} />{" "}
-      {/*отступ сверху - mt-1 */}
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{description}</Card.Text>

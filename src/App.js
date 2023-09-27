@@ -11,6 +11,7 @@ import RegistrationPage from "./pages/RegistrationPage";
 import ResultPage from "./pages/ResultPage";
 
 import { Context } from "./index";
+import TestEditPage from "./pages/TestEditPage";
 
 function App() {
   const { users } = useContext(Context);
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/tests" element={<TestListPage />} />
           <Route path="/tests/:id" element={<TestPage />} />
+          <Route path="/testsedit/:id" element={<TestEditPage />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/about" element={<AboutPage />} />

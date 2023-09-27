@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import QuestionCard from "../component/QuestionCard";
-import { Button } from "react-bootstrap";
+import QuestionEditCard from "../component/QuestionEditCard";
 import { useNavigate, useParams } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import AddQuestionModal from "../component/AddQuestionModal";
 
-const TestPage = () => {
+const TestEditPage = () => {
+  const [showQuestionEditModal, setShowQuestionEditModal] = useState(false);
+
   const params = useParams();
   const navigate = useNavigate();
   const [userAnswers, setUserAnswers] = useState([]);
-  const question = [
+  const [questions, setQuestions] = useState([
     {
       id: "1",
       test_id: 1,
@@ -108,45 +111,36 @@ const TestPage = () => {
         },
       ],
     },
-  ];
+  ]);
 
-  const selectAnswer = (question_id, answer_id) => {
-    const newAnswer = {
-      test_id: params.id,
-      question_id: question_id,
-      answer_id: answer_id,
-    };
-
-    let changeAnswer = false;
-
-    const changedAnswers = userAnswers.map((answer) => {
-      if (answer.question_id == question_id) {
-        changeAnswer = true;
-        answer.answer_id = answer_id;
-        return answer;
-      }
-      return answer;
-    });
-    if (changeAnswer) {
-      setUserAnswers(changedAnswers);
-    } else {
-      setUserAnswers([...userAnswers, newAnswer]);
-    }
+  const deleteQuestion = (q_id) => {
+    setQuestions(questions.filter((question) => question.id !== q_id));
   };
-
+  console.log("userAnswers :", userAnswers);
   return (
     <div className="d-flex flex-column align-items-center">
-      {question.map((question) => (
-        <QuestionCard
+      <AddQuestionModal
+        show={showQuestionEditModal}
+        onClose={() => setShowQuestionEditModal(false)}
+      />
+      {questions.map((question) => (
+        <QuestionEditCard
           key={question.id}
           question={question}
-          onAnswerSelect={selectAnswer}
+          onDelete={deleteQuestion}
         />
       ))}
-      <Button className="mb-5 mt-3" onClick={() => navigate("/tests")}>
-        Завершить тест
+
+      <Button
+        variant="primary"
+        style={{ width: "70px", height: "50px", fontSize: "30px" }}
+        className=" position-fixed bottom-0 end-0 mb-5 me-5 pt-0"
+        onClick={() => setShowQuestionEditModal(true)}
+      >
+        +
       </Button>
     </div>
   );
 };
-export default TestPage;
+
+export default TestEditPage;
