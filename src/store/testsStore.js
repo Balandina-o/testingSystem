@@ -4,7 +4,7 @@ class TestStore {
   testList = [
     {
       id: 1,
-      name: "Оргтехника",
+      name: "Оргтехника1",
       test_img: "https://diamondhand.ru/util/image/orgtehnika-big.png",
       description:
         "1sddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
@@ -17,6 +17,7 @@ class TestStore {
         "2dsdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
     },
   ];
+
   question = [
     {
       id: "1",

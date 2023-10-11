@@ -5,160 +5,368 @@
       "email": "george.bluth@reqres.in",
       "username": "george",
       "password": "qwerty1",
+      "role": "admin",
       "first_name": "George",
       "last_name": "Bluth",
-      "avatar": "https://reqres.in/img/faces/1-image.jpg"
+      "avatar": "/uploads/1-image.jpg"
     },
     {
       "id": 2,
       "email": "janet.weaver@reqres.in",
       "username": "janet",
       "password": "qwerty2",
+      "role": "user",
       "first_name": "Janet",
       "last_name": "Weaver",
-      "avatar": "https://reqres.in/img/faces/2-image.jpg"
+      "avatar": "/uploads/2-image.jpg"
     },
     {
       "id": 3,
       "email": "emma.wong@reqres.in",
       "username": "emma",
       "password": "qwerty3",
+      "role": "user",
       "first_name": "Emma",
       "last_name": "Wong",
-      "avatar": "https://reqres.in/img/faces/3-image.jpg"
+      "avatar": "/uploads/3-image.jpg"
     },
     {
       "id": 4,
       "email": "eve.holt@reqres.in",
       "username": "eve",
       "password": "qwerty4",
+      "role": "user",
       "first_name": "Eve",
       "last_name": "Holt",
-      "avatar": "https://reqres.in/img/faces/4-image.jpg"
+      "avatar": "/uploads/4-image.jpg"
     },
     {
       "id": 5,
       "email": "charles.morris@reqres.in",
       "username": "charles",
       "password": "qwerty5",
+      "role": "user",
       "first_name": "Charles",
       "last_name": "Morris",
-      "avatar": "https://reqres.in/img/faces/5-image.jpg"
+      "avatar": "/uploads/5-image.jpg"
     },
     {
       "id": 6,
       "email": "tracey.ramos@reqres.in",
       "username": "tracey",
       "password": "qwerty6",
+      "role": "user",
       "first_name": "Tracey",
       "last_name": "Ramos",
-      "avatar": "https://reqres.in/img/faces/6-image.jpg"
-    },
-    {
-      "email": "ivanov@mail.ru",
-      "username": "username",
-      "password": "password",
-      "first_name": "ivan",
-      "last_name": "ivanov",
-      "avatar": "http://localhost:8000/uploads/1694871452963-squirrel.jpg",
-      "id": 7
-    },
-    {
-      "email": "ivanov2@mail.ru",
-      "username": "username",
-      "password": "password",
-      "first_name": "ivan2",
-      "last_name": "ivanov2",
-      "avatar": "http://localhost:8000//uploads/1694877119545-9661273.jpg",
-      "id": 12
+      "avatar": "/uploads/6-image.jpg"
     }
   ],
 
-  "surveys": [
+  "tests": [
     {
       "id": 1,
-      "name": "Оргтехника",
-      "servey_img": "https://diamondhand.ru/util/image/orgtehnika-big.png"
+      "name": "Основы JavaScript",
+      "description": "Тест по основам синтаксиса языка JavaScript",
+      "testImg": "/uploads/JavaSctipt.webp"
     },
     {
       "id": 2,
-      "name": "Автомобили",
-      "servey_img": "https://inbusiness.kz/uploads/31/images/BcjmSeW9.jpg"
+      "name": "Основы HTML",
+      "description": "Тест по основам верстки с помощью языка разметки HTML",
+      "testImg": "/uploads/HTML5.webp"
+    },
+    {
+      "id": 3,
+      "name": "CSS3. Верстка страниц",
+      "description": "Тест на знание основных свойств элементов страницы и правил правил работы со стилями",
+      "testImg": "/uploads/CSS3.png"
+    },
+    {
+      "id": 4,
+      "name": "Язык программирования Python",
+      "description": "Тест на знание основных функций языка python",
+      "testImg": "/uploads/Python.png"
     }
   ],
-
-  "statistics": [{ "survey_id": 1, "question_id": 1, "answer_id": 1 }],
   "questions": [
     {
-      "id": "1",
-      "survey_id": 1,
-      "question": "Лучший производитель клавиатур",
-      "image": "https://avatars.mds.yandex.net/get-mpic/3614670/img_id6299576373330854786.jpeg/orig",
+      "id": 1,
+      "text": "Выберите правильный способ использования комментарий в Javascript ?",
+      "imageUrl": null,
+      "testId": 1,
       "answers": [
         {
-          "id": "1",
-          "name": "Toshiba"
+          "id": 1,
+          "answer": "{# ... #}",
+          "correct": false
         },
+        { "id": 2, "answer": "<!--- .... ---!>", "correct": false },
+        { "id": 3, "answer": "// ....", "correct": true },
+        { "id": 4, "answer": "\\ ...", "correct": false }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Как найти максимальное значение(max) для x и y?",
+      "imageUrl": null,
+      "testId": 1,
+      "answers": [
         {
-          "id": "2",
-          "name": "Genius"
+          "id": 1,
+          "answer": "ceil(x, y)",
+          "correct": false
         },
+        { "id": 2, "answer": "max(x, y)", "correct": false },
+        { "id": 3, "answer": "Math.max(x, y)", "correct": true },
+        { "id": 4, "answer": "top(x, y)", "correct": false }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Как открыть новое окно с помощью Javascript ?",
+      "imageUrl": null,
+      "testId": 1,
+      "answers": [
         {
-          "id": "3",
-          "name": "Acer"
+          "id": 1,
+          "answer": "window.open(...)",
+          "correct": true
         },
+        { "id": 2, "answer": "window.new(...)", "correct": false },
+        { "id": 3, "answer": "open(new window())", "correct": false },
+        { "id": 4, "answer": "window.open_new(...)", "correct": false }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Целочисленная переменная объявляется с использованием следующего синтаксиса в JavaScript.",
+      "imageUrl": null,
+      "testId": 1,
+      "answers": [
         {
-          "id": "4",
-          "name": "Dell"
+          "id": 1,
+          "answer": "Integer num;",
+          "correct": false
+        },
+        { "id": 2, "answer": "int num;", "correct": false },
+        { "id": 3, "answer": "var num;", "correct": true },
+        { "id": 4, "answer": "Integer num;", "correct": false }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Как открыть confirm window в Javascript ?",
+      "imageUrl": null,
+      "testId": 1,
+      "answers": [
+        {
+          "id": 1,
+          "answer": "confirm()",
+          "correct": true
+        },
+        { "id": 2, "answer": "location.confirm()", "correct": false },
+        { "id": 3, "answer": "window.open_confirm()", "correct": false },
+        { "id": 4, "answer": "window.new_confirm()", "correct": false }
+      ]
+    },
+    {
+      "id": 6,
+      "text": "Какое происходит событие, когда пользователь нажимает на элемент HTML?",
+      "imageUrl": null,
+      "testId": 1,
+      "answers": [
+        {
+          "id": 1,
+          "answer": "onclick",
+          "correct": true
+        },
+        { "id": 2, "answer": "onmouseclick", "correct": false },
+        { "id": 3, "answer": "onmouseover", "correct": false },
+        { "id": 4, "answer": "onchange", "correct": false }
+      ]
+    },
+    {
+      "id": 7,
+      "text": "Как округляется число 3.14 до ближайшего целого числа?",
+      "imageUrl": null,
+      "testId": 1,
+      "answers": [
+        {
+          "id": 1,
+          "answer": "round(3.14)",
+          "correct": false
+        },
+        { "id": 2, "answer": "rnd(3.14)", "correct": false },
+        { "id": 3, "answer": "Math.round(3.14)", "correct": true },
+        { "id": 4, "answer": "Math.rnd(3.14)", "correct": false }
+      ]
+    },
+    {
+      "id": 8,
+      "text": "Как объявляется переменная JavaScript?",
+      "imageUrl": null,
+      "testId": 1,
+      "answers": [
+        {
+          "id": 1,
+          "answer": "$Num;",
+          "correct": false
+        },
+        { "id": 2, "answer": "v Num;", "correct": false },
+        { "id": 3, "answer": "variable Num;", "correct": false },
+        { "id": 4, "answer": "var Num;", "correct": true }
+      ]
+    },
+    {
+      "id": 9,
+      "text": "Как правильно вставить внешний скрипт?",
+      "imageUrl": null,
+      "testId": 1,
+      "answers": [
+        {
+          "id": 1,
+          "answer": "<script href='sample1.js'>",
+          "correct": false
+        },
+        { "id": 2, "answer": "<script name='sample1.js'>", "correct": false },
+        { "id": 3, "answer": "<script src='sample1.js'>", "correct": true },
+        { "id": 4, "answer": "<#include 'sample1.js'>", "correct": false }
+      ]
+    },
+    {
+      "id": 10,
+      "text": "В какой секции можно вставить JavaScript?",
+      "imageUrl": "",
+      "testId": 1,
+      "answers": [
+        {
+          "id": 1,
+          "answer": "Нет правильного ответа",
+          "correct": false
+        },
+        { "id": 2, "answer": "<head> и <body>", "correct": false },
+        { "id": 3, "answer": "Только <head>", "correct": true },
+        { "id": 4, "answer": "Только <body>", "correct": false }
+      ]
+    },
+    {
+      "id": 11,
+      "text": "Элемент HTML <canvas> используется для:",
+      "imageUrl": null,
+      "testId": 2,
+      "answers": [
+        {
+          "id": 1,
+          "answer": "создавать перетаскиваемые элементы",
+          "correct": false
+        },
+        { "id": 2, "answer": "создавать статичные элементы", "correct": false },
+        { "id": 3, "answer": "работать с графикой", "correct": true },
+        {
+          "id": 4,
+          "answer": "манипулировать данными в MySQL",
+          "correct": false
         }
       ]
     },
     {
-      "id": "2",
-      "survey_id": 1,
-      "question": "Лучший производитель компьтерных мышей",
-      "image": "https://static.ru-mi.com/upload/resize_cache/iblock/12b/440_440_1/5k482c2rh32642q1v2vddbzksq67cwla.jpeg",
+      "id": 12,
+      "text": "Размер окна браузера 1000 пикселей. На страницу добавили блок с шириной 40%. Затем в этот блок добавили таблицу с шириной 50%. Какова будет ширина таблицы в пикселях?",
+      "imageUrl": null,
+      "testId": 2,
       "answers": [
         {
-          "id": "1",
-          "name": "Toshiba"
+          "id": 1,
+          "answer": "Недостаточно данных",
+          "correct": false
         },
+        { "id": 2, "answer": "250 пикселей", "correct": false },
+        { "id": 3, "answer": "200 пикселей", "correct": true },
+        { "id": 4, "answer": "500 пикселей", "correct": false }
+      ]
+    },
+    {
+      "id": 13,
+      "text": "Кто создает веб-стандарты?",
+      "imageUrl": null,
+      "testId": 2,
+      "answers": [
         {
-          "id": "2",
-          "name": "Genius"
+          "id": 1,
+          "answer": "World Wide Web Consortium (W3C)",
+          "correct": true
         },
+        { "id": 2, "answer": "Google", "correct": false },
+        { "id": 3, "answer": "Mozilla", "correct": false },
+        { "id": 4, "answer": "Microsoft", "correct": false }
+      ]
+    },
+    {
+      "id": 14,
+      "text": "В каком месте HTML документа должны определяться теги <title>, <link> и <meta> ?",
+      "imageUrl": null,
+      "testId": 2,
+      "answers": [
         {
-          "id": "3",
-          "name": "Acer"
+          "id": 1,
+          "answer": "<footer>",
+          "correct": false
         },
+        { "id": 2, "answer": "В секции <head>", "correct": true },
+        { "id": 3, "answer": "В секции <body>", "correct": false },
         {
-          "id": "4",
-          "name": "Dell"
+          "id": 4,
+          "answer": "Данные теги могут определятся в любом месте документа",
+          "correct": false
         }
       ]
     },
     {
-      "id": "3",
-      "survey_id": 1,
-      "question": "Лучший производитель мониторов",
-      "image": "https://avatars.mds.yandex.net/get-mpic/3614670/img_id6299576373330854786.jpeg/orig",
+      "id": 15,
+      "text": "Какой тег позволяет вставлять картинки в HTML документы?",
+      "imageUrl": null,
+      "testId": 2,
       "answers": [
         {
-          "id": "1",
-          "name": "Toshiba"
+          "id": 1,
+          "answer": "<picture>",
+          "correct": false
         },
+        { "id": 2, "answer": "<image>", "correct": false },
+        { "id": 3, "answer": "<img>", "correct": true },
+        { "id": 4, "answer": "<pic>", "correct": false }
+      ]
+    },
+    {
+      "id": 16,
+      "text": "Как обоначаются комментарии HTML?",
+      "imageUrl": null,
+      "testId": 2,
+      "answers": [
         {
-          "id": "2",
-          "name": "Genius"
+          "id": 1,
+          "answer": "<?php Это комментарий ?>",
+          "correct": false
         },
+        { "id": 2, "answer": "<!-- Это комментарий -->", "correct": true },
+        { "id": 3, "answer": "/* Это комментарий */", "correct": false },
+        { "id": 4, "answer": "// Это комментарий", "correct": false }
+      ]
+    },
+    {
+      "id": 17,
+      "text": "Какой тег подходит для вставки разрыва строки?",
+      "imageUrl": null,
+      "testId": 2,
+      "answers": [
         {
-          "id": "3",
-          "name": "Acer"
+          "id": 1,
+          "answer": "<lb>",
+          "correct": false
         },
-        {
-          "id": "4",
-          "name": "Dell"
-        }
+        { "id": 2, "answer": "<break>", "correct": false },
+        { "id": 3, "answer": "<hr>", "correct": false },
+        { "id": 4, "answer": "<br>", "correct": true }
       ]
     }
   ]

@@ -36,6 +36,7 @@ server.post('/file', upload.single('file'), function (req, res) {
 
 // Эндпоинт для логина
 server.post('/login', (req, res) => {
+  console.log('Начинаем авторизацию :', req.body.username)
   try {
     const { username, password } = req.body
     const db = JSON.parse(
@@ -71,11 +72,16 @@ server.use((req, res, next) => {
   if (req.path === '/users') {
     return next()
   }
-
-  if (req.path === '/todos') {
+  if (req.path.startsWith('/tests')) {
     return next()
   }
-  if (req.path.startsWith('/images')) {
+  if (req.path.startsWith('/questions')) {
+    return next()
+  }
+  if (req.path.startsWith('/uploads')) {
+    return next()
+  }
+  if (req.path.startsWith('/file')) {
     return next()
   }
 

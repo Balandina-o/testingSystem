@@ -3,8 +3,9 @@ import QuestionEditCard from "../component/QuestionEditCard";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import AddQuestionModal from "../component/AddQuestionModal";
+import { observer } from "mobx-react-lite";
 
-const TestEditPage = () => {
+const TestEditPage = observer(() => {
   const [showQuestionEditModal, setShowQuestionEditModal] = useState(false);
 
   const params = useParams();
@@ -122,6 +123,7 @@ const TestEditPage = () => {
       <AddQuestionModal
         show={showQuestionEditModal}
         onClose={() => setShowQuestionEditModal(false)}
+        test_id={params.id}
       />
       {questions.map((question) => (
         <QuestionEditCard
@@ -141,6 +143,6 @@ const TestEditPage = () => {
       </Button>
     </div>
   );
-};
+});
 
 export default TestEditPage;

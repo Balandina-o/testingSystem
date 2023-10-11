@@ -15,8 +15,7 @@ import TestEditPage from "./pages/TestEditPage";
 
 function App() {
   const { users } = useContext(Context);
-  //const loggedIn = true;
-
+  // console.log(process.env.REACT_APP_BASE_URL);
   return (
     <>
       <BrowserRouter>
