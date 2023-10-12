@@ -14,6 +14,13 @@ const AuthPage = () => {
     try {
       const response = await login(username, password);
       users.setLoggedIn(true);
+
+      console.log("User's role - ", users.user.role);
+      if (users.user.role !== "admin") {
+        users.setIsAdmin(true);
+        console.log("OMG! It's admin -", users._isAdmin);
+      }
+
       navigate("/tests");
     } catch (error) {
       if (error.response.status == 403) {

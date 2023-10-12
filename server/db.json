@@ -61,7 +61,6 @@
       "avatar": "/uploads/6-image.jpg"
     }
   ],
-
   "tests": [
     {
       "id": 1,
@@ -82,10 +81,16 @@
       "testImg": "/uploads/CSS3.png"
     },
     {
-      "id": 4,
-      "name": "Язык программирования Python",
-      "description": "Тест на знание основных функций языка python",
-      "testImg": "/uploads/Python.png"
+      "name": "New test",
+      "description": "some desc",
+      "testImg": "/uploads/1697127314508-ÐÐ¾Ñ ÑÐ¾ÑÐºÐ°.JPG",
+      "id": 4
+    },
+    {
+      "name": "1",
+      "description": "1",
+      "testImg": "/uploads/1697134660668-370b2825aa310dd218e90d76094c5d31.jpg",
+      "id": 5
     }
   ],
   "questions": [
@@ -100,9 +105,21 @@
           "answer": "{# ... #}",
           "correct": false
         },
-        { "id": 2, "answer": "<!--- .... ---!>", "correct": false },
-        { "id": 3, "answer": "// ....", "correct": true },
-        { "id": 4, "answer": "\\ ...", "correct": false }
+        {
+          "id": 2,
+          "answer": "<!--- .... ---!>",
+          "correct": false
+        },
+        {
+          "id": 3,
+          "answer": "// ....",
+          "correct": true
+        },
+        {
+          "id": 4,
+          "answer": "\\ ...",
+          "correct": false
+        }
       ]
     },
     {
@@ -116,9 +133,21 @@
           "answer": "ceil(x, y)",
           "correct": false
         },
-        { "id": 2, "answer": "max(x, y)", "correct": false },
-        { "id": 3, "answer": "Math.max(x, y)", "correct": true },
-        { "id": 4, "answer": "top(x, y)", "correct": false }
+        {
+          "id": 2,
+          "answer": "max(x, y)",
+          "correct": false
+        },
+        {
+          "id": 3,
+          "answer": "Math.max(x, y)",
+          "correct": true
+        },
+        {
+          "id": 4,
+          "answer": "top(x, y)",
+          "correct": false
+        }
       ]
     },
     {
@@ -132,9 +161,21 @@
           "answer": "window.open(...)",
           "correct": true
         },
-        { "id": 2, "answer": "window.new(...)", "correct": false },
-        { "id": 3, "answer": "open(new window())", "correct": false },
-        { "id": 4, "answer": "window.open_new(...)", "correct": false }
+        {
+          "id": 2,
+          "answer": "window.new(...)",
+          "correct": false
+        },
+        {
+          "id": 3,
+          "answer": "open(new window())",
+          "correct": false
+        },
+        {
+          "id": 4,
+          "answer": "window.open_new(...)",
+          "correct": false
+        }
       ]
     },
     {
@@ -148,9 +189,21 @@
           "answer": "Integer num;",
           "correct": false
         },
-        { "id": 2, "answer": "int num;", "correct": false },
-        { "id": 3, "answer": "var num;", "correct": true },
-        { "id": 4, "answer": "Integer num;", "correct": false }
+        {
+          "id": 2,
+          "answer": "int num;",
+          "correct": false
+        },
+        {
+          "id": 3,
+          "answer": "var num;",
+          "correct": true
+        },
+        {
+          "id": 4,
+          "answer": "Integer num;",
+          "correct": false
+        }
       ]
     },
     {
@@ -164,9 +217,21 @@
           "answer": "confirm()",
           "correct": true
         },
-        { "id": 2, "answer": "location.confirm()", "correct": false },
-        { "id": 3, "answer": "window.open_confirm()", "correct": false },
-        { "id": 4, "answer": "window.new_confirm()", "correct": false }
+        {
+          "id": 2,
+          "answer": "location.confirm()",
+          "correct": false
+        },
+        {
+          "id": 3,
+          "answer": "window.open_confirm()",
+          "correct": false
+        },
+        {
+          "id": 4,
+          "answer": "window.new_confirm()",
+          "correct": false
+        }
       ]
     },
     {
@@ -180,9 +245,21 @@
           "answer": "onclick",
           "correct": true
         },
-        { "id": 2, "answer": "onmouseclick", "correct": false },
-        { "id": 3, "answer": "onmouseover", "correct": false },
-        { "id": 4, "answer": "onchange", "correct": false }
+        {
+          "id": 2,
+          "answer": "onmouseclick",
+          "correct": false
+        },
+        {
+          "id": 3,
+          "answer": "onmouseover",
+          "correct": false
+        },
+        {
+          "id": 4,
+          "answer": "onchange",
+          "correct": false
+        }
       ]
     },
     {
@@ -196,9 +273,21 @@
           "answer": "round(3.14)",
           "correct": false
         },
-        { "id": 2, "answer": "rnd(3.14)", "correct": false },
-        { "id": 3, "answer": "Math.round(3.14)", "correct": true },
-        { "id": 4, "answer": "Math.rnd(3.14)", "correct": false }
+        {
+          "id": 2,
+          "answer": "rnd(3.14)",
+          "correct": false
+        },
+        {
+          "id": 3,
+          "answer": "Math.round(3.14)",
+          "correct": true
+        },
+        {
+          "id": 4,
+          "answer": "Math.rnd(3.14)",
+          "correct": false
+        }
       ]
     },
     {
@@ -212,9 +301,21 @@
           "answer": "$Num;",
           "correct": false
         },
-        { "id": 2, "answer": "v Num;", "correct": false },
-        { "id": 3, "answer": "variable Num;", "correct": false },
-        { "id": 4, "answer": "var Num;", "correct": true }
+        {
+          "id": 2,
+          "answer": "v Num;",
+          "correct": false
+        },
+        {
+          "id": 3,
+          "answer": "variable Num;",
+          "correct": false
+        },
+        {
+          "id": 4,
+          "answer": "var Num;",
+          "correct": true
+        }
       ]
     },
     {
@@ -228,9 +329,21 @@
           "answer": "<script href='sample1.js'>",
           "correct": false
         },
-        { "id": 2, "answer": "<script name='sample1.js'>", "correct": false },
-        { "id": 3, "answer": "<script src='sample1.js'>", "correct": true },
-        { "id": 4, "answer": "<#include 'sample1.js'>", "correct": false }
+        {
+          "id": 2,
+          "answer": "<script name='sample1.js'>",
+          "correct": false
+        },
+        {
+          "id": 3,
+          "answer": "<script src='sample1.js'>",
+          "correct": true
+        },
+        {
+          "id": 4,
+          "answer": "<#include 'sample1.js'>",
+          "correct": false
+        }
       ]
     },
     {
@@ -244,27 +357,19 @@
           "answer": "Нет правильного ответа",
           "correct": false
         },
-        { "id": 2, "answer": "<head> и <body>", "correct": false },
-        { "id": 3, "answer": "Только <head>", "correct": true },
-        { "id": 4, "answer": "Только <body>", "correct": false }
-      ]
-    },
-    {
-      "id": 11,
-      "text": "Элемент HTML <canvas> используется для:",
-      "imageUrl": null,
-      "testId": 2,
-      "answers": [
         {
-          "id": 1,
-          "answer": "создавать перетаскиваемые элементы",
+          "id": 2,
+          "answer": "<head> и <body>",
           "correct": false
         },
-        { "id": 2, "answer": "создавать статичные элементы", "correct": false },
-        { "id": 3, "answer": "работать с графикой", "correct": true },
+        {
+          "id": 3,
+          "answer": "Только <head>",
+          "correct": true
+        },
         {
           "id": 4,
-          "answer": "манипулировать данными в MySQL",
+          "answer": "Только <body>",
           "correct": false
         }
       ]
@@ -280,9 +385,21 @@
           "answer": "Недостаточно данных",
           "correct": false
         },
-        { "id": 2, "answer": "250 пикселей", "correct": false },
-        { "id": 3, "answer": "200 пикселей", "correct": true },
-        { "id": 4, "answer": "500 пикселей", "correct": false }
+        {
+          "id": 2,
+          "answer": "250 пикселей",
+          "correct": false
+        },
+        {
+          "id": 3,
+          "answer": "200 пикселей",
+          "correct": true
+        },
+        {
+          "id": 4,
+          "answer": "500 пикселей",
+          "correct": false
+        }
       ]
     },
     {
@@ -296,9 +413,21 @@
           "answer": "World Wide Web Consortium (W3C)",
           "correct": true
         },
-        { "id": 2, "answer": "Google", "correct": false },
-        { "id": 3, "answer": "Mozilla", "correct": false },
-        { "id": 4, "answer": "Microsoft", "correct": false }
+        {
+          "id": 2,
+          "answer": "Google",
+          "correct": false
+        },
+        {
+          "id": 3,
+          "answer": "Mozilla",
+          "correct": false
+        },
+        {
+          "id": 4,
+          "answer": "Microsoft",
+          "correct": false
+        }
       ]
     },
     {
@@ -312,8 +441,16 @@
           "answer": "<footer>",
           "correct": false
         },
-        { "id": 2, "answer": "В секции <head>", "correct": true },
-        { "id": 3, "answer": "В секции <body>", "correct": false },
+        {
+          "id": 2,
+          "answer": "В секции <head>",
+          "correct": true
+        },
+        {
+          "id": 3,
+          "answer": "В секции <body>",
+          "correct": false
+        },
         {
           "id": 4,
           "answer": "Данные теги могут определятся в любом месте документа",
@@ -332,9 +469,21 @@
           "answer": "<picture>",
           "correct": false
         },
-        { "id": 2, "answer": "<image>", "correct": false },
-        { "id": 3, "answer": "<img>", "correct": true },
-        { "id": 4, "answer": "<pic>", "correct": false }
+        {
+          "id": 2,
+          "answer": "<image>",
+          "correct": false
+        },
+        {
+          "id": 3,
+          "answer": "<img>",
+          "correct": true
+        },
+        {
+          "id": 4,
+          "answer": "<pic>",
+          "correct": false
+        }
       ]
     },
     {
@@ -348,26 +497,42 @@
           "answer": "<?php Это комментарий ?>",
           "correct": false
         },
-        { "id": 2, "answer": "<!-- Это комментарий -->", "correct": true },
-        { "id": 3, "answer": "/* Это комментарий */", "correct": false },
-        { "id": 4, "answer": "// Это комментарий", "correct": false }
+        {
+          "id": 2,
+          "answer": "<!-- Это комментарий -->",
+          "correct": true
+        },
+        {
+          "id": 3,
+          "answer": "/* Это комментарий */",
+          "correct": false
+        },
+        {
+          "id": 4,
+          "answer": "// Это комментарий",
+          "correct": false
+        }
       ]
     },
     {
-      "id": 17,
-      "text": "Какой тег подходит для вставки разрыва строки?",
-      "imageUrl": null,
-      "testId": 2,
+      "testId": "4",
+      "text": "1",
+      "imageUrl": "/uploads/1697134302446-370b2825aa310dd218e90d76094c5d31.jpg",
       "answers": [
         {
-          "id": 1,
-          "answer": "<lb>",
-          "correct": false
+          "id": 1697134302878,
+          "answer": "1"
         },
-        { "id": 2, "answer": "<break>", "correct": false },
-        { "id": 3, "answer": "<hr>", "correct": false },
-        { "id": 4, "answer": "<br>", "correct": true }
-      ]
+        {
+          "id": 1697134303814,
+          "answer": "1"
+        },
+        {
+          "id": 1697134304446,
+          "answer": "1"
+        }
+      ],
+      "id": 17
     }
   ]
 }

@@ -10,6 +10,10 @@ const NavBar = observer(() => {
   const { users } = useContext(Context);
   const navigate = useNavigate();
 
+  function navigateAndAdminCheck() {
+    navigate("/auth");
+    users.setIsAdmin();
+  }
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Navbar.Brand href="#home" className={classes.brand}>
@@ -44,7 +48,7 @@ const NavBar = observer(() => {
             style={{ marginRight: "30px" }}
             variant="outline-light"
             className="button"
-            onClick={() => navigate("/auth")}
+            onClick={navigateAndAdminCheck}
           >
             Авторизоваться
           </Button>

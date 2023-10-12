@@ -1,17 +1,35 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import axios from "axios";
+import { Context } from "../index";
+import { loggedInClient } from "../API";
+import { createTest } from "../API/testAPI";
 
 const AddNewTestModal = ({ show, onClose }) => {
-  // async function addNewTest() {
-  //   let newTest = {
-  //     id: 1,
-  //     name: "Оргтехника1",
-  //     test_img: "https://diamondhand.ru/util/image/orgtehnika-big.png",
-  //   };
-  //   const res = await axios.post("http://localhost:3001/tests", newTest);
-  //   console.log(res);
-  // }
+  const { tests } = useContext(Context);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [picFilePath, setPicFilePath] = useState("");
+
+  const selectFile = async (e) => {
+    const picData = new FormData();
+    picData.append("file", e.target.files[0]);
+    const response = await loggedInClient.post("/file", picData);
+    setPicFilePath(response.data.filename);
+    // console.log(response);
+  };
+
+  const createNewTest = async () => {
+    const newTest = {
+      name: name,
+      description: description,
+      testImg: picFilePath,
+    };
+    const response = await createTest(newTest);
+    tests.addTest(newTest);
+    //.log(response.data);
+    onClose();
+  };
 
   return (
     <div>
@@ -27,8 +45,21 @@ const AddNewTestModal = ({ show, onClose }) => {
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <Form.Control type="text" placeholder="Название" className="mt-3" />
-            <Form.Control type="file" className="mt-3" />
+            <Form.Control
+              type="text"
+              placeholder="Название"
+              className="mt-3"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+            />
+            <Form.Control
+              type="text"
+              placeholder="Описание теста"
+              className="mt-3"
+              value={description}
+              onChange={(event) => setDescription(event.target.value)}
+            />
+            <Form.Control type="file" className="mt-3" onChange={selectFile} />
           </Form>
         </Modal.Body>
 
@@ -36,7 +67,7 @@ const AddNewTestModal = ({ show, onClose }) => {
           <Button variant="secondary" onClick={() => onClose()}>
             Закрыть
           </Button>
-          <Button variant="primary" onClick={() => onClose()}>
+          <Button variant="primary" onClick={createNewTest}>
             Сохранить
           </Button>
         </Modal.Footer>

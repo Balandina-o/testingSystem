@@ -1,20 +1,39 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../index";
 import TestCard from "../component/TestCard";
 import { observer } from "mobx-react-lite";
 import { Button } from "react-bootstrap";
 import AddNewTestModal from "../component/AddNewTestModal";
+import { getTests } from "../API/testAPI";
+import { deleteTest } from "../API/testAPI";
 
 const TestListPage = observer(() => {
   const { tests } = useContext(Context);
   const [showCreateTestModal, setShowCreateTestModal] = useState();
-  const removeTest = (id_test) => {
-    tests.removeTest(id_test);
+
+  const removeTest = async (id_test) => {
+    try {
+      const response = await deleteTest(id_test);
+
+      tests.removeTest(id_test);
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  const getTestList = async () => {
+    const response = await getTests();
+    tests.setTests(response.data);
   };
 
   const closeModal = () => {
     setShowCreateTestModal(false);
   };
+
+  useEffect(() => {
+    getTestList();
+  }, []);
+
   return (
     <div className="d-flex flex-wrap ">
       <AddNewTestModal
@@ -22,14 +41,13 @@ const TestListPage = observer(() => {
         onClose={() => setShowCreateTestModal(false)}
       >
         {" "}
-        {/* не понятно */}
       </AddNewTestModal>
       {tests.testList.map((test) => (
         <TestCard
           key={test.id}
           id={test.id}
           title={test.name}
-          img={test.test_img}
+          img={test.testImg}
           description={test.description}
           onDelete={removeTest}
         />

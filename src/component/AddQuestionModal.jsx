@@ -1,27 +1,34 @@
 import React, { useContext, useState } from "react";
 import { Modal, Form, Button } from "react-bootstrap";
 import { Context } from "../index";
+import { createQuestion } from "../API/questionAPI";
+import { client } from "../API";
 
-const AddQuestionModal = ({ show, onClose, test_id }) => {
+const AddQuestionModal = ({ show, onClose, testId }) => {
   const { tests } = useContext(Context);
-  const [question, setQuestion] = useState("");
-  const [file, setFile] = useState(null);
+  const [text, setText] = useState("");
+  const [filePath, setFilePath] = useState("");
   const [newAnswers, setNewAnswers] = useState([]);
   const addNewAnswer = () => {
-    setNewAnswers([...newAnswers, { id: Date.now(), name: "" }]);
+    setNewAnswers([...newAnswers, { id: Date.now(), answer: "" }]);
   };
-  const selectFile = (e) => {
-    setFile(e.target.files[0]);
+
+  const selectFile = async (e) => {
+    const fileData = new FormData();
+    fileData.append("file", e.target.files[0]);
+    const response = await client.post("/file", fileData);
+    setFilePath(response.data.filename);
   };
 
   const deleteAnswer = (a_id) => {
     setNewAnswers(newAnswers.filter((answer) => answer.id !== a_id));
   };
-  const editAnswer = (name, a_id) => {
+
+  const editAnswer = (answer1, a_id) => {
     setNewAnswers(
       newAnswers.map((answer) => {
         if (answer.id == a_id) {
-          answer.name = name;
+          answer.answer = answer1;
           return answer;
         }
         return answer;
@@ -29,15 +36,16 @@ const AddQuestionModal = ({ show, onClose, test_id }) => {
     );
   };
 
-  const saveQuestion = () => {
+  const saveQuestion = async () => {
     const newQuestion = {
-      id: Date.now(),
-      test_id: test_id,
-      question: question,
-      image:
-        "https://avatars.mds.yandex.net/get-mpic/3614670/img_id6299576373330854786.jpeg/orig",
+      testId: testId,
+      text: text,
+      imageUrl: filePath,
       answers: newAnswers,
     };
+
+    const response = await createQuestion(newQuestion);
+    console.log("созданный вопрос :", response.data);
     tests.addQuestion(newQuestion);
     onClose();
   };
@@ -52,7 +60,7 @@ const AddQuestionModal = ({ show, onClose, test_id }) => {
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title>Создание опроса</Modal.Title>
+          <Modal.Title>Создание нового вопроса</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
@@ -60,10 +68,14 @@ const AddQuestionModal = ({ show, onClose, test_id }) => {
               type="text"
               placeholder="Формулировка вопроса..."
               className="mt-3"
-              value={question}
-              onChange={(event) => setQuestion(event.target.value)}
+              value={text}
+              onChange={(event) => setText(event.target.value)}
             />
-            <Form.Group controlId="formFile" className="mb-3">
+            <Form.Group
+              controlId="formFile"
+              className="mb-3"
+              onChange={selectFile}
+            >
               <Form.Label className="mt-3">
                 Выберите картинку для вопроса
               </Form.Label>
@@ -81,7 +93,7 @@ const AddQuestionModal = ({ show, onClose, test_id }) => {
                   <Form.Control
                     type="text"
                     className="mt-3"
-                    value={answer.name}
+                    value={answer.answer}
                     onChange={(e) => editAnswer(e.target.value, answer.id)}
                   />
                   <Button

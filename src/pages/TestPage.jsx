@@ -1,118 +1,38 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import QuestionCard from "../component/QuestionCard";
 import { Button } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
+import { getQuestions } from "../API/questionAPI";
+import { Context } from "../index";
 
 const TestPage = () => {
   const params = useParams();
   const navigate = useNavigate();
   const [userAnswers, setUserAnswers] = useState([]);
-  const question = [
-    {
-      id: "1",
-      test_id: 1,
-      question: "Лучший производитель клавиатур",
-      image:
-        "https://avatars.mds.yandex.net/get-mpic/3614670/img_id6299576373330854786.jpeg/orig",
-      answers: [
-        {
-          id: "1",
-          name: "Toshiba",
-        },
-        {
-          id: "2",
-          name: "Genius",
-        },
-        {
-          id: "3",
-          name: "Acer",
-        },
-        {
-          id: "4",
-          name: "Dell",
-        },
-      ],
-    },
-    {
-      id: "2",
-      test_id: 1,
-      question: "Лучший производитель компьтерных мышей",
-      image:
-        "https://static.ru-mi.com/upload/resize_cache/iblock/12b/440_440_1/5k482c2rh32642q1v2vddbzksq67cwla.jpeg",
-      answers: [
-        {
-          id: "1",
-          name: "Toshiba",
-        },
-        {
-          id: "2",
-          name: "Genius",
-        },
-        {
-          id: "3",
-          name: "Acer",
-        },
-        {
-          id: "4",
-          name: "Dell",
-        },
-      ],
-    },
-    {
-      id: "3",
-      test_id: 1,
-      question: "Лучший производитель мониторов",
-      image:
-        "https://avatars.mds.yandex.net/get-mpic/3614670/img_id6299576373330854786.jpeg/orig",
-      answers: [
-        {
-          id: "1",
-          name: "Toshiba",
-        },
-        {
-          id: "2",
-          name: "Genius",
-        },
-        {
-          id: "3",
-          name: "Acer",
-        },
-        {
-          id: "4",
-          name: "Dell",
-        },
-      ],
-    },
-    {
-      id: "4",
-      test_id: 1,
-      question: "Лучший производитель наушников",
-      image:
-        "https://avatars.mds.yandex.net/get-mpic/3614670/img_id6299576373330854786.jpeg/orig",
-      answers: [
-        {
-          id: "1",
-          name: "Toshiba",
-        },
-        {
-          id: "2",
-          name: "Genius",
-        },
-        {
-          id: "3",
-          name: "Acer",
-        },
-        {
-          id: "4",
-          name: "Dell",
-        },
-      ],
-    },
-  ];
+
+  const [filteredResponse, setFilteredResponse] = useState("");
+
+  const { tests } = useContext(Context);
+
+  const getQuestionList = async () => {
+    const response = await getQuestions();
+    console.log("Все вопросы ", response.data);
+
+    const filteredResponse = response.data.filter(
+      (quest) => quest.testId == params.id //
+    );
+    console.log("Только нужные ", filteredResponse); //
+    setFilteredResponse(filteredResponse); //
+    tests.setQuestions(filteredResponse); //
+  };
+
+  useEffect(() => {
+    getQuestionList();
+  }, []);
 
   const selectAnswer = (question_id, answer_id) => {
     const newAnswer = {
-      test_id: params.id,
+      testId: params.id,
       question_id: question_id,
       answer_id: answer_id,
     };
@@ -136,7 +56,7 @@ const TestPage = () => {
 
   return (
     <div className="d-flex flex-column align-items-center">
-      {question.map((question) => (
+      {tests.questions.map((question) => (
         <QuestionCard
           key={question.id}
           question={question}

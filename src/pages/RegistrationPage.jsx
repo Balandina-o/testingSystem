@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 import { Context } from "../index";
 import axios from "axios";
 import { client } from "../API";
+import { useNavigate } from "react-router-dom";
+import { register } from "../API/userAPI";
 
 const RegistrationPage = () => {
   const [email, setEmail] = useState("");
@@ -16,23 +17,32 @@ const RegistrationPage = () => {
   const { users } = useContext(Context);
   const navigate = useNavigate();
 
-  const user = {
-    id: 1,
-    email: "george.bluth@reqres.in",
-    username: "george",
-    password: "qwerty1",
-    role: "admin",
-    first_name: "George",
-    last_name: "Bluth",
-    avatar: "/uploads/1-image.jpg",
-  };
-
-  const selectFile = (e) => {
+  const selectFile = async (e) => {
     const avatarData = new FormData();
     avatarData.append("file", e.target.files[0]);
-    const response = client.post("/file", avatarData);
+    const response = await client.post("/file", avatarData);
     console.log("path to avatar - ", response.data.filename);
     setAvatarpath(response.data.filename);
+  };
+
+  const registerUser = async (e) => {
+    const user = {
+      email: email,
+      username: username,
+      password: password,
+      role: "user",
+      first_name: first_name,
+      last_name: last_name,
+      avatar: avatarPath,
+    };
+    try {
+      const response = await register(user);
+      console.log(response);
+      users.setLoggedIn(true);
+      navigate("/tests");
+    } catch (error) {
+      alert("Ошибка! Проверьте введенные данные");
+    }
   };
 
   return (
@@ -80,14 +90,7 @@ const RegistrationPage = () => {
 
         <Form.Control type="file" className="mt-3" onChange={selectFile} />
         <div className="d-flex justify-content-end align-items-start mt-3">
-          <Button
-            variant="success"
-            className="mt-1"
-            onClick={() => {
-              users.setLoggedIn(true);
-              navigate("/survey");
-            }}
-          >
+          <Button variant="success" className="mt-1" onClick={registerUser}>
             {" "}
             Зарегистрироваться
           </Button>
