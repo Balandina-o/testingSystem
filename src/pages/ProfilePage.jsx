@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../index";
+import { getUsers } from "../API/userAPI";
 
 const ProfilePage = () => {
-  const { users } = useContext(Context);
-  return <div>ProfilePage</div>;
+  return <div></div>;
 };
 
 export default ProfilePage;

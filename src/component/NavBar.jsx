@@ -14,6 +14,13 @@ const NavBar = observer(() => {
     navigate("/auth");
     users.setIsAdmin();
   }
+
+  function exitFromAdminAndFromLogin() {
+    navigate("/main");
+    users.setLoggedIn(false);
+    users.setIsAdmin(false);
+  }
+
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Navbar.Brand href="#home" className={classes.brand}>
@@ -39,7 +46,7 @@ const NavBar = observer(() => {
             style={{ marginRight: "30px" }}
             variant="outline-light"
             className="button"
-            onClick={() => users.setLoggedIn(false)}
+            onClick={exitFromAdminAndFromLogin}
           >
             Выйти
           </Button>

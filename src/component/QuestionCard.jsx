@@ -16,7 +16,7 @@ const QuestionCard = ({ question, onAnswerSelect }) => {
         {question.answers.map((answer) => (
           <div key={answer.id}>
             <Answer
-              question_id={question.question_id}
+              question_id={question.id}
               answer={answer}
               onSelect={onAnswerSelect}
             />

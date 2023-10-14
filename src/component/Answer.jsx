@@ -3,11 +3,11 @@ import { Form } from "react-bootstrap";
 
 const Answer = ({ question_id, answer, onSelect }) => {
   return (
-    <div>
+    <div key={answer.id}>
       <Form.Check
         inline
-        onChange={() => onSelect(question_id, answer.id)}
-        label={answer.answer} //установка параметра am=nswer - вариантов ответа - из базы
+        onChange={() => onSelect(question_id, answer.id, answer.correct)}
+        label={answer.answer} //установка параметра answer - вариантов ответа - из базы
         name={`group${question_id}`}
         type="radio"
         id={answer.id}

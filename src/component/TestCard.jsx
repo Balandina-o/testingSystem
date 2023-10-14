@@ -20,7 +20,7 @@ const TestCard = ({ id, title, description, img, onDelete }) => {
           Открыть
         </Button>
       </Card.Body>
-      {users.loggedIn && ( // сделать то же самое с ОТКРЫТЬ!!!
+      {users.isAdmin && ( // сделать то же самое с ОТКРЫТЬ!!!
         <Button
           variant="danger"
           style={{ width: "40px", height: "40px" }}
@@ -31,7 +31,7 @@ const TestCard = ({ id, title, description, img, onDelete }) => {
           &#9747;
         </Button>
       )}
-      {users.loggedIn && (
+      {users.isAdmin && (
         <Button
           variant="secondary"
           className="position-absolute start-0 mt-1 ms-1"

@@ -18,7 +18,6 @@ class UsersStore {
   }
 
   setLoggedIn(loggedIn) {
-    console.log(loggedIn);
     this._loggedIn = loggedIn;
   }
 
@@ -28,7 +27,6 @@ class UsersStore {
 
   setIsAdmin(isAdmin) {
     this._isAdmin = isAdmin;
-    console.log("admin? ", this._isAdmin);
   }
 
   get isAdmin() {

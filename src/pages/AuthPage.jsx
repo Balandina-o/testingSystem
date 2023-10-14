@@ -14,11 +14,12 @@ const AuthPage = () => {
     try {
       const response = await login(username, password);
       users.setLoggedIn(true);
+      users.setUser(response.data);
 
-      console.log("User's role - ", users.user.role);
-      if (users.user.role !== "admin") {
+      console.log("User - ", response.data);
+      if (response.data.role == "admin") {
         users.setIsAdmin(true);
-        console.log("OMG! It's admin -", users._isAdmin);
+        //console.log("OMG! It's admin -", users._isAdmin);
       }
 
       navigate("/tests");

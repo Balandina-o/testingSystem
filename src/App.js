@@ -30,9 +30,12 @@ function App() {
           <Route path="/test" element={<TestPage />} />
 
           {users.loggedIn && <Route path="/result" element={<ResultPage />} />}
-          {users.loggedIn && (
-            <Route path="/profile" element={<ProfilePage />} />
-          )}
+
+          <Route
+            path="/profile"
+            element={users.loggedIn ? <ProfilePage /> : <AuthPage />}
+          />
+
           <Route path="*" element={<TestListPage />} />
         </Routes>
       </BrowserRouter>

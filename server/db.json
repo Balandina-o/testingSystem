@@ -39,26 +39,6 @@
       "first_name": "Eve",
       "last_name": "Holt",
       "avatar": "/uploads/4-image.jpg"
-    },
-    {
-      "id": 5,
-      "email": "charles.morris@reqres.in",
-      "username": "charles",
-      "password": "qwerty5",
-      "role": "user",
-      "first_name": "Charles",
-      "last_name": "Morris",
-      "avatar": "/uploads/5-image.jpg"
-    },
-    {
-      "id": 6,
-      "email": "tracey.ramos@reqres.in",
-      "username": "tracey",
-      "password": "qwerty6",
-      "role": "user",
-      "first_name": "Tracey",
-      "last_name": "Ramos",
-      "avatar": "/uploads/6-image.jpg"
     }
   ],
   "tests": [
@@ -67,12 +47,6 @@
       "name": "Основы JavaScript",
       "description": "Тест по основам синтаксиса языка JavaScript",
       "testImg": "/uploads/JavaSctipt.webp"
-    },
-    {
-      "id": 2,
-      "name": "Основы HTML",
-      "description": "Тест по основам верстки с помощью языка разметки HTML",
-      "testImg": "/uploads/HTML5.webp"
     },
     {
       "id": 3,
@@ -85,12 +59,6 @@
       "description": "some desc",
       "testImg": "/uploads/1697127314508-ÐÐ¾Ñ ÑÐ¾ÑÐºÐ°.JPG",
       "id": 4
-    },
-    {
-      "name": "1",
-      "description": "1",
-      "testImg": "/uploads/1697134660668-370b2825aa310dd218e90d76094c5d31.jpg",
-      "id": 5
     }
   ],
   "questions": [
@@ -375,146 +343,6 @@
       ]
     },
     {
-      "id": 12,
-      "text": "Размер окна браузера 1000 пикселей. На страницу добавили блок с шириной 40%. Затем в этот блок добавили таблицу с шириной 50%. Какова будет ширина таблицы в пикселях?",
-      "imageUrl": null,
-      "testId": 2,
-      "answers": [
-        {
-          "id": 1,
-          "answer": "Недостаточно данных",
-          "correct": false
-        },
-        {
-          "id": 2,
-          "answer": "250 пикселей",
-          "correct": false
-        },
-        {
-          "id": 3,
-          "answer": "200 пикселей",
-          "correct": true
-        },
-        {
-          "id": 4,
-          "answer": "500 пикселей",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "id": 13,
-      "text": "Кто создает веб-стандарты?",
-      "imageUrl": null,
-      "testId": 2,
-      "answers": [
-        {
-          "id": 1,
-          "answer": "World Wide Web Consortium (W3C)",
-          "correct": true
-        },
-        {
-          "id": 2,
-          "answer": "Google",
-          "correct": false
-        },
-        {
-          "id": 3,
-          "answer": "Mozilla",
-          "correct": false
-        },
-        {
-          "id": 4,
-          "answer": "Microsoft",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "id": 14,
-      "text": "В каком месте HTML документа должны определяться теги <title>, <link> и <meta> ?",
-      "imageUrl": null,
-      "testId": 2,
-      "answers": [
-        {
-          "id": 1,
-          "answer": "<footer>",
-          "correct": false
-        },
-        {
-          "id": 2,
-          "answer": "В секции <head>",
-          "correct": true
-        },
-        {
-          "id": 3,
-          "answer": "В секции <body>",
-          "correct": false
-        },
-        {
-          "id": 4,
-          "answer": "Данные теги могут определятся в любом месте документа",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "id": 15,
-      "text": "Какой тег позволяет вставлять картинки в HTML документы?",
-      "imageUrl": null,
-      "testId": 2,
-      "answers": [
-        {
-          "id": 1,
-          "answer": "<picture>",
-          "correct": false
-        },
-        {
-          "id": 2,
-          "answer": "<image>",
-          "correct": false
-        },
-        {
-          "id": 3,
-          "answer": "<img>",
-          "correct": true
-        },
-        {
-          "id": 4,
-          "answer": "<pic>",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "id": 16,
-      "text": "Как обоначаются комментарии HTML?",
-      "imageUrl": null,
-      "testId": 2,
-      "answers": [
-        {
-          "id": 1,
-          "answer": "<?php Это комментарий ?>",
-          "correct": false
-        },
-        {
-          "id": 2,
-          "answer": "<!-- Это комментарий -->",
-          "correct": true
-        },
-        {
-          "id": 3,
-          "answer": "/* Это комментарий */",
-          "correct": false
-        },
-        {
-          "id": 4,
-          "answer": "// Это комментарий",
-          "correct": false
-        }
-      ]
-    },
-    {
       "testId": "4",
       "text": "1",
       "imageUrl": "/uploads/1697134302446-370b2825aa310dd218e90d76094c5d31.jpg",
@@ -533,6 +361,50 @@
         }
       ],
       "id": 17
+    },
+    {
+      "testId": "3",
+      "text": "1",
+      "imageUrl": "/uploads/1697308942997-ÐºÐ¾ÑÐ¿Ð»ÐµÐ¸ Ð½Ð° Ð°Ð»ÑÐ±Ð¾Ð¼Ñ Ð¿Ð¸Ð»Ð¾ÑÐ¾Ð² Ð¸Ð¼Ð±Ð°.jpg",
+      "answers": [
+        {
+          "id": 1697308944596,
+          "answer": "1"
+        },
+        {
+          "id": 1697308945315,
+          "answer": "2"
+        },
+        {
+          "id": 1697308946043,
+          "answer": "2"
+        },
+        {
+          "id": 1697308946731,
+          "answer": "2"
+        }
+      ],
+      "id": 18
+    }
+  ],
+  "results": [
+    {
+      "userId": 1,
+      "testId": "4",
+      "result": 0,
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "testId": "1",
+      "result": 10,
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "testId": "3",
+      "result": 0,
+      "id": 3
     }
   ]
 }
