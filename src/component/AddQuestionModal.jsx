@@ -7,10 +7,15 @@ import { client } from "../API";
 const AddQuestionModal = ({ show, onClose, testId }) => {
   const { tests } = useContext(Context);
   const [text, setText] = useState("");
+  const [radio, setRadio] = useState("");
+
   const [filePath, setFilePath] = useState("");
   const [newAnswers, setNewAnswers] = useState([]);
   const addNewAnswer = () => {
-    setNewAnswers([...newAnswers, { id: Date.now(), answer: "" }]);
+    setNewAnswers([
+      ...newAnswers,
+      { id: Date.now(), answer: "", correct: "false" },
+    ]);
   };
 
   const selectFile = async (e) => {
@@ -29,8 +34,11 @@ const AddQuestionModal = ({ show, onClose, testId }) => {
       newAnswers.map((answer) => {
         if (answer.id == a_id) {
           answer.answer = answer1;
+          answer.correct = document.getElementById(answer.id).checked;
+          // alert(document.getElementById(answer.id).checked);
           return answer;
         }
+        // alert(document.getElementById(answer.id).checked);
         return answer;
       })
     );
@@ -96,6 +104,19 @@ const AddQuestionModal = ({ show, onClose, testId }) => {
                     value={answer.answer}
                     onChange={(e) => editAnswer(e.target.value, answer.id)}
                   />
+                  <div class="form-check">
+                    <input
+                      id={answer.id}
+                      class="form-check-input"
+                      type="radio"
+                      name="flexRadioDefault"
+                      value={radio}
+                      onClick={(e) => editAnswer(e.target.value, answer.id)}
+                    />
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      Отметить как верный
+                    </label>
+                  </div>
                   <Button
                     variant="danger"
                     style={{ width: "30px", height: "30px" }}

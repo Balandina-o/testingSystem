@@ -1,17 +1,31 @@
 import { makeAutoObservable } from "mobx";
 
 class ResultsStore {
-  results = [];
+  resultsList = [];
+  filteredResultsList = [];
+
   constructor() {
     makeAutoObservable(this);
   }
 
   addResult(result) {
-    this.results.push(result);
+    this.resultsList.push(result);
   }
 
-  clearResults(test_id) {
-    this.results = this.results.filter((result) => result.test_id !== test_id);
+  setResults(results) {
+    this.resultsList = results;
   }
+
+  setFilteredResults(results) {
+    this.filteredResultsList = results;
+  }
+
+  // filteredResultsAdmin(results, user_id) {
+  //   this.resultsList = results.filter((res) => res.userId == user_id);
+  // }
+
+  // filteredResultsusesrs(results, user_id) {
+  //   this.filteredResultsList = results.filter((res) => res.userId == user_id);
+  // }
 }
 export default ResultsStore;

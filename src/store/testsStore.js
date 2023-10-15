@@ -8,6 +8,10 @@ class TestStore {
     makeAutoObservable(this);
   }
 
+  get testList1() {
+    return this._testList;
+  }
+
   removeTest(testId) {
     this.testList = this.testList.filter((test) => test.id !== testId);
   }

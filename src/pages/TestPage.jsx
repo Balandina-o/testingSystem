@@ -66,7 +66,6 @@ const TestPage = () => {
     const correctNumber = resultsCalc.getCorrectNumber(userAnswers);
     result = resultsCalc.getResultScore(correctNumber, tests.questions.length);
 
-    //console.log("user answers ", userAnswers);
     console.log("сумма ", tests.questions.length);
     console.log("верных ", correctNumber);
     console.log("result ", result);
@@ -74,7 +73,6 @@ const TestPage = () => {
     navigate("/tests");
   }
 
-  //  "results": [{ "id": 1, "userId": 1, "testId": 1, "result": 100 }
   const saveResult = async () => {
     const newResult = {
       userId: users.user.id,
@@ -84,7 +82,6 @@ const TestPage = () => {
 
     const response = await setResult(newResult);
     console.log("созданный результат :", response.data);
-    console.log("созданный результатdsddcdccd :", result);
     results.addResult(newResult);
   };
 

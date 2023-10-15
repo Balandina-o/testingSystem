@@ -16,16 +16,14 @@ const AuthPage = () => {
       users.setLoggedIn(true);
       users.setUser(response.data);
 
-      console.log("User - ", response.data);
       if (response.data.role == "admin") {
         users.setIsAdmin(true);
-        //console.log("OMG! It's admin -", users._isAdmin);
       }
 
       navigate("/tests");
     } catch (error) {
       if (error.response.status == 403) {
-        alert("Неверный логин или пароль"); //сделать другое окошко
+        alert("Неверный логин или пароль");
       }
     }
   };

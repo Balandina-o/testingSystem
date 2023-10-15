@@ -16,7 +16,6 @@ const AddNewTestModal = ({ show, onClose }) => {
     picData.append("file", e.target.files[0]);
     const response = await loggedInClient.post("/file", picData);
     setPicFilePath(response.data.filename);
-    // console.log(response);
   };
 
   const createNewTest = async () => {
@@ -27,7 +26,6 @@ const AddNewTestModal = ({ show, onClose }) => {
     };
     const response = await createTest(newTest);
     tests.addTest(newTest);
-    //.log(response.data);
     onClose();
   };
 
