@@ -1,4 +1,4 @@
-import { client, loggedInClient } from "./index";
+import { loggedInClient } from "./index";
 
 export const setResult = async (result) => {
   const res = await loggedInClient.post("/results", result);

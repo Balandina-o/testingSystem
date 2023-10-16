@@ -5,8 +5,9 @@ import PersonalResults from "./PersonalResults";
 
 export default function WatchResults(props) {
   const { results } = useContext(Context);
+
   return (
-    <div>
+    <div key={new FormData()}>
       <Modal
         show={props.show}
         onHide={() => props.onClose()}
@@ -31,7 +32,6 @@ export default function WatchResults(props) {
           <Button variant="secondary" onClick={() => props.onClose()}>
             Закрыть
           </Button>
-          <Button variant="primary">Сохранить</Button>
         </Modal.Footer>
       </Modal>
     </div>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Modal, Form, Button } from "react-bootstrap";
 import { Context } from "../index";
 import { createQuestion } from "../API/questionAPI";
@@ -7,14 +7,14 @@ import { client } from "../API";
 const AddQuestionModal = ({ show, onClose, testId }) => {
   const { tests } = useContext(Context);
   const [text, setText] = useState("");
-  const [radio, setRadio] = useState("");
 
+  const [checkedRadio, setCheckedRadio] = useState("");
   const [filePath, setFilePath] = useState("");
   const [newAnswers, setNewAnswers] = useState([]);
   const addNewAnswer = () => {
     setNewAnswers([
       ...newAnswers,
-      { id: Date.now(), answer: "", correct: "false" },
+      { id: Date.now(), answer: "", correct: false },
     ]);
   };
 
@@ -34,11 +34,22 @@ const AddQuestionModal = ({ show, onClose, testId }) => {
       newAnswers.map((answer) => {
         if (answer.id == a_id) {
           answer.answer = answer1;
-          answer.correct = document.getElementById(answer.id).checked;
-          // alert(document.getElementById(answer.id).checked);
           return answer;
         }
-        // alert(document.getElementById(answer.id).checked);
+        return answer;
+      })
+    );
+  };
+
+  const editRadio = (answer1, a_id) => {
+    setNewAnswers(
+      newAnswers.map((answer) => {
+        answer.correct = false;
+        setCheckedRadio(answer1);
+        if (answer.id == a_id) {
+          answer.correct = checkedRadio;
+          return answer;
+        }
         return answer;
       })
     );
@@ -77,6 +88,7 @@ const AddQuestionModal = ({ show, onClose, testId }) => {
               placeholder="Формулировка вопроса..."
               className="mt-3"
               value={text}
+              required
               onChange={(event) => setText(event.target.value)}
             />
             <Form.Group
@@ -99,6 +111,7 @@ const AddQuestionModal = ({ show, onClose, testId }) => {
                 <div key={answer.id} className="d-flex">
                   {" "}
                   <Form.Control
+                    required
                     type="text"
                     className="mt-3"
                     value={answer.answer}
@@ -106,12 +119,12 @@ const AddQuestionModal = ({ show, onClose, testId }) => {
                   />
                   <div class="form-check">
                     <input
+                      defaultChecked
                       id={answer.id}
                       class="form-check-input"
                       type="radio"
                       name="flexRadioDefault"
-                      value={radio}
-                      onClick={(e) => editAnswer(e.target.value, answer.id)}
+                      onClick={(e) => editRadio(e.target.checked, answer.id)}
                     />
                     <label class="form-check-label" for="flexRadioDefault2">
                       Отметить как верный

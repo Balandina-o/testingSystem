@@ -13,8 +13,6 @@ const AboutPage = () => {
     useState("");
   const [showResultWindow, setShowResultWindow] = useState();
 
-  const [idBtn, setIdBtn] = useState("");
-
   const { allUsers } = useContext(Context);
   const { users } = useContext(Context);
   const { results } = useContext(Context);
@@ -42,36 +40,29 @@ const AboutPage = () => {
     getResultsList();
   }, []);
 
-  const getResultsListForRegulars = async () => {
+  const getResultsListForRegulars = async (btn) => {
     const response = await getResults();
 
     const filteredResponseRegularUsers = response.data.filter(
-      (res) => res.userId == idBtn
+      (res) => res.userId == btn
     );
     setFilteredResponseRegularUsers(filteredResponseRegularUsers);
     results.setResults(filteredResponseRegularUsers);
   };
 
-  useEffect(() => {
-    getResultsList();
-  }, []);
-
-  getResultsListForRegulars();
-
   function getUserNumberFromBtn(btn) {
-    getResultsListForRegulars();
-    setIdBtn(btn[0]);
+    getResultsListForRegulars(btn[0]);
     setShowResultWindow(true);
   }
 
   return (
-    <div>
+    <div key={new FormData()}>
       <PersonalUserData user={Object.assign({}, users.user)} />
-
       {users.isAdmin ? (
         <div>
           {allUsers.usersList.map((user) => (
             <UserInProfileAdmin
+              key={user.id}
               id={user.id}
               email={user.email}
               username={user.username}
@@ -80,6 +71,7 @@ const AboutPage = () => {
           ))}
           {
             <WatchResults
+              key={new FormData()}
               show={showResultWindow}
               onClose={() => setShowResultWindow(false)}
             ></WatchResults>
