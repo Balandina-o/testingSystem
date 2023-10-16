@@ -1,21 +1,17 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./component/NavBar";
-
 import TestListPage from "./pages/TestListPage";
 import AuthPage from "./pages/AuthPage";
 import AboutPage from "./pages/AboutPage";
 import ProfilePage from "./pages/ProfilePage";
 import TestPage from "./pages/TestPage";
 import RegistrationPage from "./pages/RegistrationPage";
-import ResultPage from "./pages/ResultPage";
-
 import { Context } from "./index";
 import TestEditPage from "./pages/TestEditPage";
 
 function App() {
   const { users } = useContext(Context);
-  // console.log(process.env.REACT_APP_BASE_URL);
   return (
     <>
       <BrowserRouter>
@@ -28,14 +24,11 @@ function App() {
           <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/test" element={<TestPage />} />
-
-          {users.loggedIn && <Route path="/result" element={<ResultPage />} />}
-
-          <Route
+          <Route path="/profile" element={<ProfilePage />} />
+          {/* <Route
             path="/profile"
             element={users.loggedIn ? <ProfilePage /> : <AuthPage />}
-          />
-
+          /> */}
           <Route path="*" element={<TestListPage />} />
         </Routes>
       </BrowserRouter>

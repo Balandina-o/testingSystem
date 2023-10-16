@@ -5,6 +5,15 @@ import PersonalResults from "./PersonalResults";
 
 export default function WatchResults(props) {
   const { results } = useContext(Context);
+  const [sortedRes, setSortedRes] = useState([]);
+
+  function sort() {
+    results.resultsList.sort(function (a, b) {
+      return parseFloat(a.testId) - parseFloat(b.testId);
+    });
+    setSortedRes(results.resultsList);
+    console.log(sortedRes);
+  }
 
   return (
     <div key={new FormData()}>
@@ -20,7 +29,10 @@ export default function WatchResults(props) {
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <div>
+            <Button variant="success" className="mt-1" onClick={sort}>
+              Отсортировать по номеру теста
+            </Button>
+            <div key={new FormData()}>
               {results.resultsList.map((result) => (
                 <PersonalResults testId={result.testId} res={result.result} />
               ))}

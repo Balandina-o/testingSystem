@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
-import axios from "axios";
 import { Context } from "../index";
 import { loggedInClient } from "../API";
 import { createTest } from "../API/testAPI";

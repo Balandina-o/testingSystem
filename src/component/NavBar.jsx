@@ -24,7 +24,16 @@ const NavBar = observer(() => {
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Navbar.Brand href="#home" className={classes.brand}>
-        Testing System
+        <a class="navbar-brand" href="#">
+          <img
+            src={process.env.REACT_APP_BASE_URL + "/uploads/logo.png"}
+            width="30"
+            height="30"
+            class="d-inline-block align-top"
+            alt=""
+          />
+          <b>esting System</b>
+        </a>
       </Navbar.Brand>
       <div className={classes.nav}>
         <div className={classes.links}>
@@ -36,7 +45,7 @@ const NavBar = observer(() => {
           </Link>
           {users.loggedIn && (
             <Link className={classes.link} to="/profile">
-              Профиль
+              Личный кабинет
             </Link>
           )}
         </div>

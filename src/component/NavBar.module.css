@@ -2,12 +2,24 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 8px;
 }
 
 .links {
   display: flex;
   justify-content: flex-start;
+}
+
+.link {
   margin-top: 8px;
+  font-size: 17px;
+  padding: 10px;
+}
+
+.link:hover {
+  background-color: rgb(91, 89, 96);
+  border-radius: 20px;
+  color: gold;
 }
 .brand {
   margin-left: 30px;

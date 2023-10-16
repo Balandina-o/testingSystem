@@ -117,16 +117,19 @@ const AddQuestionModal = ({ show, onClose, testId }) => {
                     value={answer.answer}
                     onChange={(e) => editAnswer(e.target.value, answer.id)}
                   />
-                  <div class="form-check">
+                  <div className="form-check">
                     <input
                       defaultChecked
                       id={answer.id}
-                      class="form-check-input"
+                      className="form-check-input"
                       type="radio"
                       name="flexRadioDefault"
                       onClick={(e) => editRadio(e.target.checked, answer.id)}
                     />
-                    <label class="form-check-label" for="flexRadioDefault2">
+                    <label
+                      className="form-check-label"
+                      htmlFor="flexRadioDefault2"
+                    >
                       Отметить как верный
                     </label>
                   </div>

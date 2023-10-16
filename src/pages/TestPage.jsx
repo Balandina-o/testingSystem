@@ -6,6 +6,7 @@ import { getQuestions } from "../API/questionAPI";
 import { Context } from "../index";
 import ResultsCalc from "../calc/ResultsCalc";
 import { setResult } from "../API/resultsAPI";
+import TestListPage from "./TestListPage";
 
 const TestPage = () => {
   const resultsCalc = new ResultsCalc();
@@ -65,10 +66,9 @@ const TestPage = () => {
   function getScoreAndNavigate() {
     const correctNumber = resultsCalc.getCorrectNumber(userAnswers);
     result = resultsCalc.getResultScore(correctNumber, tests.questions.length);
-
-    console.log("сумма ", tests.questions.length);
-    console.log("верных ", correctNumber);
-    console.log("result ", result);
+    // console.log("сумма ", tests.questions.length);
+    // console.log("верных ", correctNumber);
+    // console.log("result ", result);
     saveResult();
     navigate("/tests");
   }
