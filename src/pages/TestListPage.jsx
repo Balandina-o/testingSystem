@@ -6,6 +6,7 @@ import { Button } from "react-bootstrap";
 import AddNewTestModal from "../component/AddNewTestModal";
 import { getTests } from "../API/testAPI";
 import { deleteTest } from "../API/testAPI";
+import classes from "../component/css_component/TestListPage.module.css";
 
 const TestListPage = observer(() => {
   const { tests } = useContext(Context);
@@ -36,6 +37,10 @@ const TestListPage = observer(() => {
 
   return (
     <div className="d-flex flex-wrap ">
+      <div className={classes.title}>
+        Промежуточные тесты курса "Графический дизайнер"
+      </div>
+
       <AddNewTestModal
         show={showCreateTestModal}
         onClose={() => setShowCreateTestModal(false)}

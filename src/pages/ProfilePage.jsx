@@ -7,6 +7,7 @@ import { getResults } from "../API/resultsAPI";
 import WatchResults from "../component/WatchResults";
 import PersonalUserData from "../component/PersonalUserData";
 import { Button, Container, Form } from "react-bootstrap";
+import classes from "../component/css_component/ProfilePage.module.css";
 
 const ProfilePage = () => {
   const [filteredResponse, setFilteredResponse] = useState("");
@@ -66,7 +67,7 @@ const ProfilePage = () => {
   }
 
   return (
-    <div key={new FormData()}>
+    <div className={classes.container} key={new FormData()}>
       <PersonalUserData user={Object.assign({}, users.user)} />
       {!users.isAdmin && (
         <Button variant="success" className="mt-1" onClick={sort}>
@@ -94,9 +95,11 @@ const ProfilePage = () => {
           }
         </div>
       ) : (
-        results.filteredResultsList.map((result) => (
-          <PersonalResults testId={result.testId} res={result.result} />
-        ))
+        <div className={classes.result_cont}>
+          {results.filteredResultsList.map((result) => (
+            <PersonalResults testId={result.testId} res={result.result} />
+          ))}{" "}
+        </div>
       )}
     </div>
   );

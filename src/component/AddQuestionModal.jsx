@@ -3,13 +3,14 @@ import { Modal, Form, Button } from "react-bootstrap";
 import { Context } from "../index";
 import { createQuestion } from "../API/questionAPI";
 import { client } from "../API";
+import classes from "./css_component/AddQuestionModal.module.css";
 
 const AddQuestionModal = ({ show, onClose, testId }) => {
   const { tests } = useContext(Context);
   const [text, setText] = useState("");
 
-  const [checkedRadio, setCheckedRadio] = useState("");
-  const [filePath, setFilePath] = useState("");
+  const [checkedRadio, setCheckedRadio] = useState(true);
+  const [filePath, setFilePath] = useState(null);
   const [newAnswers, setNewAnswers] = useState([]);
   const addNewAnswer = () => {
     setNewAnswers([
@@ -42,6 +43,7 @@ const AddQuestionModal = ({ show, onClose, testId }) => {
   };
 
   const editRadio = (answer1, a_id) => {
+    console.log("radio value: ", answer1);
     setNewAnswers(
       newAnswers.map((answer) => {
         answer.correct = false;
@@ -66,6 +68,7 @@ const AddQuestionModal = ({ show, onClose, testId }) => {
     const response = await createQuestion(newQuestion);
     console.log("созданный вопрос :", response.data);
     tests.addQuestion(newQuestion);
+    document.getElementById("myform").reset();
     onClose();
   };
   console.log("Варианты ответов: ", newAnswers);
@@ -82,7 +85,7 @@ const AddQuestionModal = ({ show, onClose, testId }) => {
           <Modal.Title>Создание нового вопроса</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form id="myform">
             <Form.Control
               type="text"
               placeholder="Формулировка вопроса..."
@@ -108,7 +111,7 @@ const AddQuestionModal = ({ show, onClose, testId }) => {
             <Form.Label className="mt-3">Варианты ответа:</Form.Label>
             <div>
               {newAnswers.map((answer) => (
-                <div key={answer.id} className="d-flex">
+                <div key={answer.id} className={classes.d_flex}>
                   {" "}
                   <Form.Control
                     required
@@ -117,9 +120,8 @@ const AddQuestionModal = ({ show, onClose, testId }) => {
                     value={answer.answer}
                     onChange={(e) => editAnswer(e.target.value, answer.id)}
                   />
-                  <div className="form-check">
+                  <div className={classes.form_check}>
                     <input
-                      defaultChecked
                       id={answer.id}
                       className="form-check-input"
                       type="radio"
@@ -130,7 +132,7 @@ const AddQuestionModal = ({ show, onClose, testId }) => {
                       className="form-check-label"
                       htmlFor="flexRadioDefault2"
                     >
-                      Отметить как верный
+                      <div className={classes.label}>Отметить как верный</div>
                     </label>
                   </div>
                   <Button

@@ -29,9 +29,10 @@ export default function WatchResults(props) {
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <Button variant="success" className="mt-1" onClick={sort}>
+            <Button variant="success" className="mt-1 " onClick={sort}>
               Отсортировать по номеру теста
             </Button>
+
             <div key={new FormData()}>
               {results.resultsList.map((result) => (
                 <PersonalResults testId={result.testId} res={result.result} />

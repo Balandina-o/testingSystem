@@ -1,0 +1,41 @@
+.container {
+  height: 320px;
+  width: 50%;
+  background-image: url("https://vsegda-pomnim.com/uploads/posts/2022-04/1649549257_40-vsegda-pomnim-com-p-beloe-derevo-foto-40.jpg");
+  background-color: rgb(91, 89, 96);
+  display: flex;
+}
+
+.img {
+  margin: 5px;
+  width: 250px;
+  border-radius: 7px;
+}
+
+.img:hover {
+  opacity: 0.8;
+  /* filter: drop-shadow(10px 10px 10px white); */
+}
+
+.email {
+  background-color: white;
+  padding: 10px;
+  margin-top: 7px;
+  border-radius: 5px;
+}
+
+.text_another {
+  background-color: rgb(91, 89, 96);
+  margin: 10px;
+  border-radius: 5px;
+  z-index: 1;
+  position: relative;
+}
+
+.text {
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 10px;
+  text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2),
+    0px -5px 35px rgba(255, 255, 255, 0.3);
+}

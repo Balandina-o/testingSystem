@@ -36,7 +36,7 @@ const TestEditPage = observer(() => {
   const removeQuestion = async (q_id) => {
     try {
       const response = await deleteQuestion(q_id);
-      console.log("удалеие вопроса :", response);
+      console.log("удаление вопроса :", response);
       tests.removeQuestion(q_id);
     } catch (error) {
       alert(error);

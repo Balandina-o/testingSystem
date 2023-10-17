@@ -1,0 +1,15 @@
+.label {
+  font-size: 10px;
+}
+.form_check {
+  margin-top: 30px;
+  margin-left: 20px;
+  display: flex;
+  margin-left: 20px;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+}
+.d_flex {
+  display: flex;
+  align-items: baseline;
+}

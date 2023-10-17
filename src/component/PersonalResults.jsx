@@ -1,14 +1,14 @@
-import React, { useContext, useState } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import React from "react";
 
 export default function PersonalResults(props) {
   return (
     <div
-      className="shadow rounded w-50 h-25 m-3 pt-3 pb-3 pe-5 ps-5"
+      className="shadow rounded w-50 h-50  pt-3 pb-3 pe-5 ps-5"
       key={new FormData()}
     >
-      Номер теста: {props.testId} <br />
-      Результат: {props.res} / 100
+      <b>Номер теста: </b>
+      {props.testId} <br />
+      <b>Результат: </b> {props.res} / 100
       <br />
     </div>
   );

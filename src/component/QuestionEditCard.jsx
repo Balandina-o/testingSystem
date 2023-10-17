@@ -9,6 +9,7 @@ const QuestionEditCard = ({ question, onDelete }) => {
         <img
           src={process.env.REACT_APP_BASE_URL + question.imageUrl}
           className="w-25 h-25"
+          alt="___"
         />
       </div>
       <div className="mt-3">
