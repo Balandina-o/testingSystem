@@ -5,6 +5,7 @@ export default function UserInProfileAdmin(props) {
   return (
     <div
       className="shadow rounded w-50 h-25  pt-3 pb-3 pe-5 ps-5"
+      style={{ backgroundColor: "white", margin: "3px" }}
       key={new FormData()}
     >
       <b>id:</b> {props.id} <br />

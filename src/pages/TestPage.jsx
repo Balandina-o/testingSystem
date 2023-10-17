@@ -23,14 +23,13 @@ const TestPage = () => {
 
   const getQuestionList = async () => {
     const response = await getQuestions();
-    console.log("Все вопросы ", response.data); //
-
+    //console.log("Все вопросы ", response.data);
     const filteredResponse = response.data.filter(
-      (quest) => quest.testId == params.id //
+      (quest) => quest.testId == params.id
     );
-    console.log("Только нужные ", filteredResponse); //
-    setFilteredResponse(filteredResponse); //
-    tests.setQuestions(filteredResponse); //
+    //console.log("Только нужные ", filteredResponse);
+    setFilteredResponse(filteredResponse);
+    tests.setQuestions(filteredResponse);
   };
 
   useEffect(() => {
@@ -66,9 +65,6 @@ const TestPage = () => {
   function getScoreAndNavigate() {
     const correctNumber = resultsCalc.getCorrectNumber(userAnswers);
     result = resultsCalc.getResultScore(correctNumber, tests.questions.length);
-    // console.log("сумма ", tests.questions.length);
-    // console.log("верных ", correctNumber);
-    // console.log("result ", result);
     saveResult();
     navigate("/tests");
   }

@@ -12,8 +12,8 @@ class TestStore {
     return this._testList;
   }
 
-  removeTest(testId) {
-    this.testList = this.testList.filter((test) => test.id !== testId);
+  removeTest(test_id) {
+    this.testList = this.testList.filter((test) => test.id !== test_id);
   }
 
   setTests(tests) {
@@ -33,7 +33,7 @@ class TestStore {
   }
 
   removeQuestion(question_id) {
-    this.testList = this.testList.filter(
+    this.questions = this.questions.filter(
       (question) => question.id !== question_id
     );
   }

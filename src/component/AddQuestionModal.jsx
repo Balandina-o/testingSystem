@@ -67,8 +67,11 @@ const AddQuestionModal = ({ show, onClose, testId }) => {
 
     const response = await createQuestion(newQuestion);
     console.log("созданный вопрос :", response.data);
-    tests.addQuestion(newQuestion);
-    document.getElementById("myform").reset();
+    console.log("response", response);
+    tests.addQuestion({
+      ...newQuestion,
+      id: response.data.id,
+    });
     onClose();
   };
   console.log("Варианты ответов: ", newAnswers);

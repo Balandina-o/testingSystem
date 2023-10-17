@@ -10,12 +10,13 @@ import classes from "../component/css_component/TestListPage.module.css";
 
 const TestListPage = observer(() => {
   const { tests } = useContext(Context);
+  const { users } = useContext(Context);
   const [showCreateTestModal, setShowCreateTestModal] = useState();
 
   const removeTest = async (id_test) => {
     try {
       const response = await deleteTest(id_test);
-
+      console.log("ответ на удаление ", response);
       tests.removeTest(id_test);
     } catch (error) {
       alert(error);
@@ -27,20 +28,15 @@ const TestListPage = observer(() => {
     tests.setTests(response.data);
   };
 
-  const closeModal = () => {
-    setShowCreateTestModal(false);
-  };
-
   useEffect(() => {
     getTestList();
   }, []);
 
   return (
-    <div className="d-flex flex-wrap ">
+    <div className={classes.cont}>
       <div className={classes.title}>
         Промежуточные тесты курса "Графический дизайнер"
       </div>
-
       <AddNewTestModal
         show={showCreateTestModal}
         onClose={() => setShowCreateTestModal(false)}
@@ -57,15 +53,16 @@ const TestListPage = observer(() => {
           onDelete={removeTest}
         />
       ))}
-
-      <Button
-        variant="primary"
-        style={{ width: "70px", height: "50px", fontSize: "30px" }}
-        className=" position-fixed bottom-0 end-0 mb-5 me-5 pt-0"
-        onClick={() => setShowCreateTestModal(true)}
-      >
-        +
-      </Button>
+      {users.isAdmin && (
+        <Button
+          variant="primary"
+          style={{ width: "70px", height: "50px", fontSize: "30px" }}
+          className=" position-fixed bottom-0 end-0 mb-5 me-5 pt-0"
+          onClick={() => setShowCreateTestModal(true)}
+        >
+          +
+        </Button>
+      )}
     </div>
   );
 });

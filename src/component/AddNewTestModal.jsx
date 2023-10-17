@@ -24,7 +24,11 @@ const AddNewTestModal = ({ show, onClose }) => {
       testImg: picFilePath,
     };
     const response = await createTest(newTest);
-    tests.addTest(newTest);
+    console.log("response ", response);
+    tests.addTest({
+      ...newTest,
+      id: response.data.id,
+    });
     onClose();
   };
 

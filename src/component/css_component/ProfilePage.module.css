@@ -2,3 +2,15 @@
   position: relative;
   z-index: 10;
 }
+
+:root {
+  background-color: white;
+}
+
+.container {
+  background-image: url("https://phonoteka.org/uploads/posts/2022-02/1644497982_19-phonoteka-org-p-serii-shkolnii-fon-19.png");
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin: 0px;
+  position: relative;
+}

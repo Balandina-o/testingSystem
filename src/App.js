@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./component/NavBar";
 import TestListPage from "./pages/TestListPage";
@@ -7,11 +7,9 @@ import AboutPage from "./pages/AboutPage";
 import ProfilePage from "./pages/ProfilePage";
 import TestPage from "./pages/TestPage";
 import RegistrationPage from "./pages/RegistrationPage";
-import { Context } from "./index";
 import TestEditPage from "./pages/TestEditPage";
 
 function App() {
-  const { users } = useContext(Context);
   return (
     <>
       <BrowserRouter>
@@ -25,10 +23,6 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/test" element={<TestPage />} />
           <Route path="/profile" element={<ProfilePage />} />
-          {/* <Route
-            path="/profile"
-            element={users.loggedIn ? <ProfilePage /> : <AuthPage />}
-          /> */}
           <Route path="*" element={<TestListPage />} />
         </Routes>
       </BrowserRouter>

@@ -39,6 +39,10 @@ const RegistrationPage = () => {
       const response = await register(user);
       console.log(response);
       users.setLoggedIn(true);
+      users.setUser({
+        ...user,
+        user,
+      });
       navigate("/tests");
     } catch (error) {
       alert("Ошибка! Проверьте введенные данные");

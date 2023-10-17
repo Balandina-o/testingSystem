@@ -8,7 +8,7 @@
       "role": "admin",
       "first_name": "George",
       "last_name": "Bluth",
-      "avatar": "/uploads/1-image.jpg"
+      "avatar": "/uploads/admin.png"
     },
     {
       "id": 2,
@@ -71,12 +71,6 @@
       "description": "Как и в любой профессии, в графическом дизайне существуют правила. Проверим твои знания правил в типографике?",
       "testImg": "/uploads/1697550242892-test_5.png",
       "id": 5
-    },
-    {
-      "name": "1",
-      "description": "1",
-      "testImg": "",
-      "id": 6
     }
   ],
   "questions": [
@@ -160,62 +154,6 @@
         {
           "id": 4,
           "answer": "Adobe Illustrator",
-          "correct": true
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "testId": "1",
-      "text": "Как назвать тип композиции с зеркальным отражением по оси?",
-      "imageUrl": null,
-      "answers": [
-        {
-          "id": 1,
-          "answer": "Уравновешенная",
-          "correct": false
-        },
-        {
-          "id": 2,
-          "answer": "В рамке",
-          "correct": false
-        },
-        {
-          "id": 3,
-          "answer": "Ассиметричная",
-          "correct": false
-        },
-        {
-          "id": 4,
-          "answer": "Симметричная",
-          "correct": true
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "testId": "1",
-      "text": "Что из перечисленного не верно при дизайне упаковки?",
-      "imageUrl": null,
-      "answers": [
-        {
-          "id": 1,
-          "answer": "Проект упаковки делается плоским и затем складывается в 3D-формате.",
-          "correct": false
-        },
-        {
-          "id": 2,
-          "answer": "Графические дизайнеры всегда учитывают символизм цвета при проектировании упаковки",
-          "correct": false
-        },
-        {
-          "id": 3,
-          "answer": "Дизайнеры упаковок всегда учитывают правило 3 секунд.",
-          "correct": false
-        },
-        {
-          "id": 4,
-          "answer": "Главное — минимализм",
           "correct": true
         }
       ]
@@ -619,6 +557,12 @@
       "testId": "5",
       "result": 100,
       "id": 4
+    },
+    {
+      "userId": 4,
+      "testId": "2",
+      "result": 60,
+      "id": 5
     }
   ]
 }

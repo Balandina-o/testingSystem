@@ -32,7 +32,7 @@ const AuthPage = () => {
     <Container className="d-flex justify-content-center align-items-center">
       <Form
         className="bg-primary bg-opacity-10 p-4 mt-5 rounded"
-        style={{ width: "50%", minWidth: "500px " }}
+        style={{ minWidth: "500px " }}
       >
         <h2>Авторизация</h2>
         <Form.Control
